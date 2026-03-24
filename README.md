@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Agentic RAG Project
 
 This is a simple Agentic RAG system I built to understand how AI agents combine reasoning, retrieval, and tool usage.
@@ -24,3 +25,6 @@ Otherwise → answer directly with Gemini
 
 If RAG is used, PDFs inside the data/ folder are split into chunks, converted into embeddings, stored in FAISS, and the top 3 relevant chunks are sent to Gemini to generate the final answer.
 
+=======
+# Agentic-RAG-AI-Assistant
+>>>>>>> 7c0b1c6e83a249b2650f9489bd893464acd7fe38

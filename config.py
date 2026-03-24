@@ -20,22 +20,13 @@ def generate_response(prompt: str) -> str:
     if not prompt:
         return ""
     try:
-        response = genai.responses.create(
-            model=MODEL_NAME,
-            input=prompt,
-        )
-        # The structure may vary; assume output[0].content[0].text
-        output = response.output
-        if output and isinstance(output, list):
-            parts = []
-            for item in output:
-                if isinstance(item, dict) and "content" in item:
-                    for c in item["content"]:
-                        text = c.get("text")
-                        if text:
-                            parts.append(text)
-            return "".join(parts).strip()
-        # fallback
-        return str(output)
+        # CORRECTED: Initialize the GenerativeModel
+        model = genai.GenerativeModel(MODEL_NAME)
+        
+        # CORRECTED: Use generate_content to get the response
+        response = model.generate_content(prompt)
+        
+        # Return the text string
+        return response.text
     except Exception as e:
         raise RuntimeError(f"Error generating response: {e}")
